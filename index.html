@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Your Gateway to Academic Excellence</title>
+    <meta name="description"
+        content="Premium educational website: career guidance, college admissions, entrance coaching, one-to-one sessions, and choice filling support.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+
+            --bg: linear-gradient(135deg, #0B0B0B 0%, #00334D 20%, #15B6E8 55%, #D68B2A 100%);
+
+            --panel: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --blue: #2563eb;
+            --violet: #7c3aed;
+            --mint: #10b981;
+            --pink: #ec4899;
+            --amber: #f59e0b;
+            --teal: #14b8a6;
+            --border: #e5e7eb;
+            --shadow: 0 12px 28px rgba(15, 23, 42, .08);
+            --radius: 16px;
+            --radius-sm: 12px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            margin: 0
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+            background: var(--bg);
+            color: var(--text)
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--blue)
+        }
+
+        img {
+            display: block;
+            max-width: 100%
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 18px
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, .92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 18px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800
+        }
+
+        .mark {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            background: transparent;
+            box-shadow: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .brand-text span:first-child {
+            font-size: 18px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .brand-text span:last-child {
+            font-size: 12px;
+            color: #475569;
+            font-weight: 600;
+        }
+
+        .links {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap
+        }
+
+        .links a {
+            color: #0f172a;
+            font-weight: 600
+        }
+
+        .quiz {
+            background: var(--violet);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid #ede9fe;
+            box-shadow: var(--shadow);
+            font-weight: 700;
+        }
+
+        .quiz:hover {
+            opacity: .95
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 42px 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 18px;
+            align-items: center
+        }
+
+        @media (max-width:980px) {
+            .hero-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .hero-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 22px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin: 0 0 10px
+        }
+
+        .hero p {
+            color: var(--muted);
+            margin: 0 0 16px
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            background: var(--blue);
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 12px;
+            border: 1px solid #dbeafe;
+            box-shadow: var(--shadow);
+            font-weight: 700
+        }
+
+        .btn.alt {
+            background: #fff;
+            color: var(--text);
+            border: 1px solid var(--border)
+        }
+
+        .hero-image {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 12px;
+        }
+
+        .hero-image .caption {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 8px
+        }
+
+        /* Section base */
+        section.section {
+            padding: 30px 0
+        }
+
+        h2 {
+            font-size: 26px;
+            margin: 0 0 12px
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        /* Services (6 colorful boxes) */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px
+        }
+
+        @media (max-width:980px) {
+            .services {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media (max-width:640px) {
+            .services {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .service {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .service h3 {
+            margin: 0 0 8px
+        }
+
+        .tag {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 12px;
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 999px;
+            margin-bottom: 10px
+        }
+
+        .g-blue {
+            background: linear-gradient(135deg, #60a5fa, #2563eb)
+        }
+
+        .g-violet {
+            background: linear-gradient(135deg, #a78bfa, #7c3aed)
+        }
+
+        .g-mint {
+            background: linear-gradient(135deg, #34d399, #10b981)
+        }
+
+        .g-pink {
+            background: linear-gradient(135deg, #f472b6, #ec4899)
+        }
+
+        .g-amber {
+            background: linear-gradient(135deg, #fcd34d, #f59e0b)
+        }
+
+        .g-teal {
+            background: linear-gradient(135deg, #ea5e5e, #b81414)
+        }
+
+        .service img {
+            border-radius: 12px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border)
+        }
+
+        /* Why choose + stats */
+        .why {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 14px
+        }
+
+        @media (max-width:980px) {
+            .why {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .pane {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            box-shadow: var(--shadow)
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 10px
+        }
+
+        @media (max-width:980px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media (max-width:640px) {
+            .stats {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .stat {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            box-shadow: var(--shadow)
+        }
+
+        .big {
+            font-size: 28px;
+            font-weight: 800
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        /* 5-step journey */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px
+        }
+
+        @media (max-width:1100px) {
+            .steps {
+                grid-template-columns: repeat(3, 1fr)
+            }
+        }
+
+        @media (max-width:740px) {
+            .steps {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media (max-width:480px) {
+            .steps {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .step {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+            box-shadow: var(--shadow)
+        }
+
+        .step .num {
+            font-weight: 800;
+            color: var(--violet);
+            margin-bottom: 6px
+        }
+
+        /* Testimonials */
+        .quotes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px
+        }
+
+        @media (max-width:980px) {
+            .quotes {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media (max-width:640px) {
+            .quotes {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .quote {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: var(--shadow)
+        }
+
+        .quote .name {
+            font-weight: 800
+        }
+
+        .quote .rank {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 4px
+        }
+
+        /* Counseling form */
+        .form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        @media (max-width:640px) {
+            .form {
+                grid-template-columns: 1fr
+            }
+        }
+
+        label {
+            font-weight: 600
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #fff;
+            color: var(--text)
+        }
+
+        .form .full {
+            grid-column: 1 / -1
+        }
+
+        .submit {
+            background: var(--violet);
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid #ede9fe;
+            font-weight: 800
+        }
+
+        .submit:hover {
+            opacity: .95
+        }
+
+        /* FAQ */
+        .filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 10px
+        }
+
+        .chip {
+            background: #eef2ff;
+            color: #3730a3;
+            border: 1px solid #e0e7ff;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-weight: 700
+        }
+
+        .faq {
+            display: grid;
+            gap: 10px
+        }
+
+        .q {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: var(--shadow)
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 26px;
+            padding: 18px 0;
+            border-top: 1px solid var(--border);
+            background: #fff;
+            color: var(--muted)
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 14px
+        }
+
+        @media (max-width:980px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media (max-width:640px) {
+            .footer-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .badge-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 10px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 12px;
+            border: 1px solid var(--border)
+        }
+
+        .secure {
+            background: #ecfeff;
+            color: #0e7490;
+            border-color: #a5f3fc
+        }
+
+        .verified {
+            background: #f0fdf4;
+            color: #166534;
+            border-color: #bbf7d0
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            background: #0f172a;
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transition: .3s
+        }
+
+        .toast.show {
+            opacity: 1
+        }
+
+        .hero {
+            background: none;
+            padding: 42px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header style="background-color: #fdf5e6 ;">
+        <div class="container nav">
+            <div class="brand">
+                <div class="mark">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <image
+                            href="https://image2url.com/images/1765128151740-1c8e9e39-1907-47a3-83f2-b3b7f41ec8ec.jpg"
+                            height="100%" width="100%" />
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span>FSGES</span>
+                    <span>Career Guidance & Admissions</span>
+                </div>
+            </div>
+            <nav class="links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#why">Why Us</a>
+                <a href="#journey">Career Journey</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#counseling">Book Counseling</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-card" style="background-color: #ffe4cd;">
+                <h1>Your Gateway to Academic Excellence</h1>
+                <p>Unlock your potential with our expert guidance in higher education admissions and academic career
+                    development. We're
+                    here to transform your educational journey</p>
+                <div class="row">
+                    <a class="btn" href="#counseling">Book Counseling</a>
+                    <a class="btn alt" href="#services">Explore Services</a>
+                </div>
+            </div>
+            <div class="hero-image" style="background-color: #df6fa7;">
+                <h3>Students studying with books and laptops</h3>
+                <div class="caption">Learn today. Build tomorrow — study-focused visuals for an educational feel.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="container">
+            <h2 style="color: lightyellow;">Comprehensive career solutions</h2>
+            <p class="muted" style="color: #a5f3fc;">From personalized guidance to admissions, we cover every step of
+                your journey.</p>
+            <div class="services">
+                <div class="service" style="background-color: lightskyblue;">
+                    <span class="tag g-blue">Career Guidance</span>
+
+                    <h3>Personalized Career Guidance</h3>
+                    <p class="muted">One-to-one sessions aligning interests, strengths, and budget to best-fit paths.
+                    </p>
+                </div>
+                <div class="service" style="background-color: #7b68ee;">
+                    <span class="tag g-violet">Admissions</span>
+
+                    <h3>College Admission Support</h3>
+                    <p class="muted">Rankings, criteria, campus insights, and fee concessions for informed choices.</p>
+                </div>
+                <div class="service" style="background-color: lightgreen;">
+                    <span class="tag g-mint">Coaching</span>
+
+                    <h3>Entrance Coaching</h3>
+                    <p class="muted">JEE • VITEEE • SRMJEEE • AEEE • BITSAT — targeted prep with mock tests.</p>
+                </div>
+                <div class="service" style="background-color: #dda0dd;">
+                    <span class="tag g-pink">Choice Filling</span>
+
+                    <h3>Choice Filling Services</h3>
+                    <p class="muted">Optimal lists for TNEA, JoSAA, COMEDK, MHTCET, and more — with live tracking.</p>
+                </div>
+                <div class="service" style="background-color: lightyellow;">
+                    <span class="tag g-amber">One-to-One</span>
+
+                    <h3>One-to-One Sessions</h3>
+                    <p class="muted">Student + parent sessions, psychometric insights, and practical roadmaps.</p>
+                </div>
+                <div class="service" style="background-color: lightcoral;">
+                    <span class="tag g-teal">Community</span>
+
+                    <h3>Community Connection</h3>
+                    <p class="muted">Support for diverse backgrounds — clear guidance that's truly accessible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why" class="section">
+        <div class="container why">
+            <div class="pane" style="background-color: #ffe4cd;">
+                <h2>
+                    Why work with us </h2>
+                <p class="muted">We're not just counselors; we're partners in your success — dedicated to helping you
+                    make confident, informed choices.</p>
+                <div class="stats" shadow="20px">
+                    <div class="stat">
+                        <div class="big">26,000+</div>
+                        <div class="small">Students Guided</div>
+                    </div>
+                    <div class="stat">
+                        <div class="big">1,200+</div>
+                        <div class="small">Admissions Provided</div>
+                    </div>
+                    <div class="stat">
+                        <div class="big">4+ Years</div>
+                        <div class="small">Impact Across South India</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="journey" class="section">
+        <div class="container">
+            <h2>Academic Career Counseling</h2>
+            <div class="steps">
+                <div class="step" style="background-color: #d3e991 ">
+                    <div class="num" style="color: rgb(14, 13, 13);">Step 1. — Career assessment and planning</div>
+                    <p class="muted">Identify strengths, patterns, and traits with a comprehensive
+                        assessment.</p>
+                </div>
+                <div class="step" style="background-color: #9fd69a;">
+                    <div class="num" style="color: rgb(14, 13, 13);">Step 2. — Academic pathway mapping</div>
+                    <p class="muted">Certified counselors map best-fit paths aligned to your
+                        profile.</p>
+                </div>
+                <div class="step" style="background-color: #a5dbdb;">
+                    <div class="num" style="color: rgb(14, 13, 13);">Step 3. — Skill development programs</div>
+                    <p class="muted">Personal guidance to explore opportunities in detail.</p>
+                </div>
+                <div class="step" style="background-color: #be8282;">
+                    <div class="num" style="color: rgb(14, 13, 13);">Step 4. — Industry insights and trends</div>
+                    <p class="muted">Customized roadmap and actionable steps to move forward.</p>
+                </div>
+                <div class="step" style="background-color: #83a6b5;">
+                    <div class="num" style="color: rgb(14, 13, 13);">Step 5. — Networking opportunities</div>
+                    <p class="muted">Progress tracking, updates, and iteration for success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section">
+        <div class="container">
+            <h2>Voices of house student</h2>
+            <div class="quotes">
+                <div class="quote" style="background-color: #aba6d3;">
+                    <div class="name">Jeevan Melvin</div>
+                    <div class="rank">VIT Rank — 12727</div>
+                    <p>"Excellent coaching, better than my integrated coaching. Previous year papers became easy."</p>
+                </div>
+                <div class="quote" style="background-color: #a0c5cf;">
+                    <div class="name">Joyce Silvikins</div>
+                    <div class="rank">VIT Rank — 13473</div>
+                    <p>"Clear online coaching for 12th entrance exam — helped me crack VITEEE with ease."</p>
+                </div>
+                <div class="quote" style="background-color: #a495d0;">
+                    <div class="name">Pranav Akilan</div>
+                    <div class="rank">VIT Rank — 15911</div>
+                    <p>"Wonderful experience. I would definitely recommend the guidance."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="counseling" class="section">
+        <div class="container">
+            <h2>Book a quality counseling session</h2>
+            <p class="muted">Response time: within 15 minutes • Proven success: 2,500+ admits</p>
+            <form id="counselForm">
+                <h3>Admission Form</h3>
+                <div class="form">
+                    <div>
+                        <label for="fullname">Full Name:</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div>
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 9xxxxxxxxx" required>
+                    </div>
+
+                    <div>
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div>
+                        <label for="course">Course Name:</label>
+                        <input type="text" id="course" name="course" placeholder="Enter course name" required>
+                    </div>
+
+                    <div class="full">
+                        <label for="goals">Tell us about your goals:</label>
+                        <textarea id="goals" name="goals" rows="4" placeholder="Write your goals here..."
+                            required></textarea>
+                    </div>
+
+                    <div class="full">
+                        <button type="submit" class="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="faq" class="section">
+        <div class="container">
+            <h2>Frequently asked questions</h2>
+            <div class="filters">
+                <span class="chip">All</span><span class="chip">General</span><span class="chip">Coaching</span><span
+                    class="chip">Services</span>
+            </div>
+            <div class="faq">
+                <div class="q">
+                    <strong>What is FS Academy?</strong>
+                    <p class="muted">A student-first guidance platform for careers, admissions, and entrance coaching.
+                    </p>
+                </div>
+                <div class="q">
+                    <strong>Which entrance exams do you coach?</strong>
+                    <p class="muted">JEE, VITEEE, SRMJEEE, AEEE, BITSAT, and more with targeted preparation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Get in touch</h2>
+            <div class="pane">
+                <p class="muted">Location: Coimbatore, Tamil Nadu • Email: fsgesacademy@example.com • Phone: +91 96773
+                    26752</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background-color:#eab9c9;">
+        <div class="container footer-grid">
+            <div>
+                <address>
+                    <h1>Address</h1>
+                    Flat No.16(old No.114),Town R S Puram,Devange High School Road,City Coimbatore,State TamilNadu
+                    District COIMBATORE,PIN 641002,<br>Mobile.no <Mobile class="no"> 8883377677</Mobile> , <br>
+                    <Email class="id">
+                        Gopikannaceo@futurestepges.in</Email>
+                </address>
+            </div>
+            <div>
+                <strong>Quick Links</strong>
+                <p><a href="#home">Home</a> • <a href="#services">Services</a> • <a href="#why">Why Us</a> • <a
+                        href="#contact">Contact</a></p>
+            </div>
+
+        </div>
+
+        <div class="container" style="text-align:center; margin-top:12px">
+            © 2026 FSGES Academy. All rights reserved.
+        </div>
+    </footer>
+
+    <div id="toast" class="toast">Submitted</div>
+    <script>
+        const toast = document.getElementById('toast');
+        document.getElementById('counselForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            toast.textContent = 'Thanks! We will contact you within 24 hours.';
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 1800);
+            e.target.reset();
+        });
+    </script>
+</body>
+
+</html>
